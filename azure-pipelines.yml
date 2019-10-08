@@ -11,7 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  NUGET_PACKAGES: $(Pipelines.Workspace)/.nuget/packages
+  NUGET_PACKAGES: .nuget/packages
 
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
