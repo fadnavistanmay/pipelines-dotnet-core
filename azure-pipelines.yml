@@ -11,7 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  NUGET: $(Pipleine.Workspace)/.nuget/packages
+  NUGET: $(Pipeline.Workspace)/.nuget/packages
 
 steps:
 - task: DotNetCoreCLI@2
