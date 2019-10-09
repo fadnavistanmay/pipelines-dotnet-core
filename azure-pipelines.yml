@@ -11,10 +11,12 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  NUGET_PACKAGES: .nuget/packages
+  NUGET_PACKAGES: $(Pipleine.Workspace)/.nuget/packages
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
   displayName: 'dotnet build $(buildConfiguration)'
 
 - script: ls -l $(NUGET_PACKAGES)
