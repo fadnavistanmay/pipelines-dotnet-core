@@ -17,7 +17,7 @@ steps:
 
 - task: CacheBeta@1
   inputs:
-    key: nuget | $(Agent.OS)
+    key: nuget2 | $(Agent.OS)
     path: $(PACKAGES_PATH)
     cacheHitVar: CACHE_RESTORED
   displayName: 'Cache Nuget'
