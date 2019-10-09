@@ -32,7 +32,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    arguments: --packages $(PACKAGES_PATH)
+    arguments: --no-restore --packages $(PACKAGES_PATH)
   displayName: 'dotnet build $(buildConfiguration)'
 
 - script: ls -l $(PACKAGES_PATH)
