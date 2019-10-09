@@ -11,7 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  NUGET_PACKAGES: /mnt/a/1/.nuget/packages
+  NUGET_PACKAGES: $(Pipleine.Workspace)/.nuget/packages
 
 steps:
 - task: DotNetCoreCLI@2
