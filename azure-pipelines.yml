@@ -20,7 +20,7 @@ steps:
       key: nuget | $(Agent.OS)
       path: $(PACKAGES_PATH)
       cacheHitVar: CACHE_RESTORED
-    displayName: 'Cache Nuget'
+   displayName: 'Cache Nuget'
   
 - task: DotNetCoreCLI@2
   inputs:
