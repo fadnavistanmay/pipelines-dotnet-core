@@ -11,18 +11,27 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  #NUGET_PACKAGES: /mnt/a/1/.nuget/packages
+  PACKAGES_PATH: $(Pipeline.Workspace)/.nuget/packages
 
 steps:
+
+ - task: CacheBeta@1
+   inputs:
+      key: nuget | $(Agent.OS)
+      path: $(PACKAGES_PATH)
+      cacheHitVar: CACHE_RESTORED
+    displayName: 'Cache Nuget'
+  
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
-    packagesDirectory: $(Pipeline.Workspace)/.nuget/packages
+    packagesDirectory: $(PACKAGES_PATH)
   displayName: 'dotnet restore'
+  condition: ne(variables.CACHE_RESTORED, 'true')
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
   displayName: 'dotnet build $(buildConfiguration)'
 
-- script: ls -l $(Pipeline.Workspace)/.nuget/packages
+- script: ls -l $(PACKAGES_PATH)
