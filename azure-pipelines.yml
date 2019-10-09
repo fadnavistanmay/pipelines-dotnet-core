@@ -11,13 +11,13 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-  NUGET_PACKAGES: /mnt/a/1/.nuget/packages
+  #NUGET_PACKAGES: /mnt/a/1/.nuget/packages
 
 steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    #packagesDirectory: $(NUGET)
+    packagesDirectory: $(Pipeline.Workspace)
   displayName: 'dotnet build $(buildConfiguration)'
 
-- script: ls -l $(NUGET_PACKAGES)
+- script: ls -l $(Pipeline.Workspace)
