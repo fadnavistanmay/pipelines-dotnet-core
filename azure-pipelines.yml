@@ -17,6 +17,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
+    packagesDirectory: $(NUGET_PACKAGES)
   displayName: 'dotnet build $(buildConfiguration)'
 
 - script: ls -l $(NUGET_PACKAGES)
