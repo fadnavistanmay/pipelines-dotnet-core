@@ -6,6 +6,8 @@ steps:
     path: $(PACKAGES_PATH)
     cacheHitVar: CACHE_RESTORED
   displayName: 'Cache Nuget'
+
+- script: dotnet --list-sdks
   
 - task: DotNetCoreCLI@2
   inputs:
