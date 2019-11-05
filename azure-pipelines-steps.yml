@@ -7,6 +7,12 @@ steps:
     cacheHitVar: CACHE_RESTORED
   displayName: 'Cache Nuget'
 
+- task: Cache@2
+  inputs:
+    key: $(CACHE_KEY) | cachega
+    path: $(PACKAGES_PATH)
+  displayName: 'Cache Nuget GA'
+
 - task: UseDotNet@2
   displayName: 'Use .NET Core sdk'
   inputs:
