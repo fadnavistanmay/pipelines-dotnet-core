@@ -46,6 +46,7 @@ variables:
   buildConfiguration: 'Release'
   PACKAGES_PATH: $(Pipeline.Workspace)/.nuget/packages
   CACHE_KEY: nuget | $(Agent.OS) | $(Build.BuildId) | $(CACHE_PACK)
+  system.debug: true
 
 #steps:
 #
